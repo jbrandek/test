@@ -36,7 +36,6 @@ function update_script() {
   RELEASE=$(curl -s https://api.github.com/repos/NginxProxyManager/nginx-proxy-manager/releases/latest |
     grep "tag_name" |
     awk '{print substr($2, 3, length($2)-4) }')
-  sed -i '18.138.237.72 openresty.org' /etc/hosts
   msg_info "Stopping Services"
   systemctl stop openresty
   systemctl stop npm
